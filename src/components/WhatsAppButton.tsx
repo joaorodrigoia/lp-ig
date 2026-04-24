@@ -13,12 +13,13 @@ type Props = {
   size?: Size;
   showIcon?: boolean;
   className?: string;
+  fullWidth?: boolean;
 };
 
 const sizes: Record<Size, string> = {
   sm: 'text-sm px-5 py-2.5',
   md: 'text-sm md:text-base px-7 py-3.5',
-  lg: 'text-base md:text-lg px-9 py-4.5',
+  lg: 'text-base md:text-lg px-9 py-4',
 };
 
 export function WhatsAppButton({
@@ -27,6 +28,7 @@ export function WhatsAppButton({
   size = 'md',
   showIcon = true,
   className,
+  fullWidth = false,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -53,11 +55,13 @@ export function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          'inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] whitespace-nowrap',
+          'inline-flex items-center justify-center gap-2 font-medium rounded-full',
+          'transition-all duration-200 hover:scale-[1.02] active:scale-[0.97] whitespace-nowrap',
           variant === 'secondary'
             ? 'bg-transparent text-gold border border-gold/60 hover:border-gold hover:bg-gold/5'
             : 'bg-transparent text-white/80 hover:text-gold',
           sizes[size],
+          fullWidth && 'w-full',
           className,
         )}
         aria-label="Abrir conversa no WhatsApp"
@@ -74,9 +78,9 @@ export function WhatsAppButton({
       style={{ x: sx, y: sy }}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      className={cn('relative inline-flex', className)}
+      className={cn('relative inline-flex', fullWidth && 'w-full', className)}
     >
-      {/* Pulse rings expandindo para fora do botão */}
+      {/* Pulse rings */}
       <span className="animate-pulse-ring absolute inset-0 rounded-full bg-gold/30 pointer-events-none" />
       <span className="animate-pulse-ring-delayed absolute inset-0 rounded-full bg-gold/20 pointer-events-none" />
 
@@ -91,14 +95,12 @@ export function WhatsAppButton({
           'transition-shadow duration-300 whitespace-nowrap',
           'active:scale-[0.97]',
           sizes[size],
+          fullWidth && 'w-full',
         )}
         aria-label="Abrir conversa no WhatsApp"
       >
-        {showIcon && (
-          <MessageCircle className="h-4 w-4 md:h-5 md:w-5 flex-none" />
-        )}
+        {showIcon && <MessageCircle className="h-4 w-4 md:h-5 md:w-5 flex-none" />}
         <span>{label}</span>
-        {/* Ponto "online" verde estilo WhatsApp */}
         <span className="relative ml-0.5 flex h-2.5 w-2.5 flex-none">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
           <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />

@@ -9,6 +9,7 @@ import { Process } from './components/Process';
 import { About } from './components/About';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
+import { StickyMobileCTA } from './components/StickyMobileCTA';
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <StickyMobileCTA />
     </div>
   );
 }

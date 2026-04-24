@@ -3,8 +3,8 @@ import { IG_URL, IG_HANDLE, WHATSAPP_URL, WHATSAPP_NUMBER } from '@/data/content
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-subtle bg-bg py-12 md:py-16">
-      <div className="mx-auto max-w-6xl px-6 md:px-8">
+    <footer className="relative border-t border-subtle bg-bg py-12 pb-28 md:py-16 md:pb-16">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
             <div className="flex items-baseline gap-2">

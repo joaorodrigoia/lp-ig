@@ -18,13 +18,13 @@ export function SectionWrapper({
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={cn('relative py-20 md:py-28', className)}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={cn('relative py-14 md:py-24', className)}
     >
-      <div className={cn('mx-auto max-w-6xl px-6 md:px-8', containerClassName)}>
+      <div className={cn('mx-auto max-w-6xl px-5 md:px-8', containerClassName)}>
         {children}
       </div>
     </motion.section>
